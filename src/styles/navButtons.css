@@ -1,0 +1,37 @@
+.navButton {
+    margin-top: 2rem;
+    padding: 0.5rem 0;
+    border: none;
+    cursor: pointer;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    background-color: #ffeba7;
+    transition: background-color 0.3s ease-in-out;
+    box-shadow: 0 4px 16px 0 #ffeba7;
+    border-radius: 4px;
+    height: 44px;
+    width: 100px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.navButton:hover {
+    color: #ffeba7;
+    background-color: var(--primary-color);
+    box-shadow: 0 8px 24px 0 #000000;
+    transition: background-color 0.3s ease-in-out;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .navButton {
+        width: 100px;
+    }
+
+    
+}
+
+@media (max-width: 768px) {
+    .navButton {
+        width: 100px;
+    }
+}

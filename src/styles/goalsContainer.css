@@ -1,0 +1,91 @@
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.goal-container {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    justify-content: flex-start;
+    padding: 10px;
+    background-color: #00000075;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.goal-container h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.goal-container p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.goals-buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+}
+
+.goals-buttons .checkButton,
+.goals-buttons .deleteButton {
+    margin-top: 2rem;
+    padding: 0.5rem 0;
+    border: none;
+    cursor: pointer;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    background-color: #181818;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 4px;
+    width: 80px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.goals-buttons .checkButton:hover {
+    color: #ffeba7;
+    background-color: #287224;
+    box-shadow: 0 8px 24px 0 #287224;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.goals-buttons .deleteButton:hover {
+    color: #ffeba7;
+    background-color: #bc0c0c;
+    box-shadow: 0 8px 24px 0 #bc0c0c;
+    transition: background-color 0.3s ease-in-out;
+}
+
+@media (min-width: 1025px) and (max-width: 1599px) {
+    .goals-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+    }
+  }
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .goals-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .goals-grid {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 5px;
+    }
+}

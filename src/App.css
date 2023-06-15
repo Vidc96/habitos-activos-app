@@ -1,38 +1,71 @@
-.App {
-  text-align: center;
+@import url('./styles/reset.css');
+@import url('./styles/variables.css');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: var(--secondary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav-button {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 0.3rem 2rem;
+    background-color: transparent;
+    border: none;
+    color: var(--primary-color);
+    transition: box-shadow 0.3s ease-in-out;
+    text-shadow: 1px 1px 1px var(--primary-color);
+    cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav-button:active {
+    text-shadow: 1px 1px 1px var(--primary-color);
+    background-color: transparent;
+    color: var(--primary-color);
+    box-shadow: inset 0 5px 10px 0 #000;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+footer {
+    left: 0;
+    bottom: 0;
+    padding-top: 0.5rem;
+    width: 100%;
+    height: 60px;
+    background-color: var(--secondary-color);
+    text-align: center;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.8);
 }
 
-.App-link {
-  color: #61dafb;
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    header {
+        padding: 10px 40px;
+    }
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px 20px;
+        text-align: center;
+    }
+
+    .nav-button {
+        margin-top: 10px;
+    }
+
 }

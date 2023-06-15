@@ -1,0 +1,65 @@
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.book-container {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 250px;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    background-color: #00000075;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.book-container h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.book-container p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.book-container a {
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.book-container a:hover {
+    color: #ffeba7;
+}
+
+.book-container img {
+    width: 100px;
+    object-fit: cover;
+    margin-top: 10px;
+    border-radius: 3px;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .books-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .books-grid {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 5px;
+    }
+}

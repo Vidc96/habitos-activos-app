@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/goalForm.css';
 
 const GoalForm = () => {
   const [formData, setFormData] = useState({
@@ -28,8 +29,6 @@ const GoalForm = () => {
           data = JSON.parse(text);
         } catch (error) {
           console.error('Error al analizar la respuesta JSON:', error);
-          setResponseMessage('Error al crear el objetivo 1');
-          return;
         }
       }
 
@@ -39,12 +38,9 @@ const GoalForm = () => {
           goal_name: '',
           goal_description: '',
         });
-      } else {
-        setResponseMessage('Error al crear el objetivo 2');
-      }
+      } 
     } catch (error) {
       console.error('Error en la solicitud:', error);
-      setResponseMessage('Error en la solicitud');
     }
   };
 
@@ -53,29 +49,29 @@ const GoalForm = () => {
   };
 
   return (
-    <div>
-      <h3>New Goal, let's go!</h3>
+    <div className='form-content'>
+      <h2>¿Listo para un nuevo hábito?, empecemos ya!</h2>
       <p>Rellena los campos a continuación:</p>
-      <form onSubmit={handleSubmit}>
+      <form className='goal-form' onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="title">Título:</label>
           <input
             type="text"
             id="goal_name"
             name="goal_name"
             value={formData.title}
             onChange={handleChange}
+            placeholder="Título para tu hábito"
             required
           />
         </div>
         <div>
-          <label htmlFor="goal_description">Descripción:</label>
           <input
             type="text"
             id="goal_description"
             name="goal_description"
             value={formData.description}
             onChange={handleChange}
+            placeholder="Mi hábito trata sobre..."
             required
           />
         </div>

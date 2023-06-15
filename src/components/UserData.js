@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import '../styles/userData.css';
 
 const UserData = () => {
   const [name, setName] = useState('');
@@ -43,7 +44,6 @@ const UserData = () => {
       }
     } catch (error) {
       console.error('Error en la solicitud:', error);
-      setResponseMessage('Error en la solicitud');
     }
   };
 
@@ -59,57 +59,60 @@ const UserData = () => {
 
         if (response.ok) {
           setResponseMessage('Cuenta eliminada correctamente');
-          sessionStorage.removeItem('userId'); // Elimina el ID del usuario de la sessionStorage
-          window.location.reload(); // Recarga la página después de eliminar la cuenta
+          sessionStorage.removeItem('userId'); 
+          window.location.reload(); 
         } else {
           setResponseMessage('Error al eliminar la cuenta');
         }
       } catch (error) {
         console.error('Error en la solicitud:', error);
-        setResponseMessage('Error en la solicitud');
+        
       }
     }
   };
 
   return (
-    <div>
-      <h3>Centro de Cuenta</h3>
+    <div className='form-content'>
+      <h2>Centro de Cuenta</h2>
       <p>Administra tu experiencia</p>
-      <form onSubmit={handleUpdate}>
+      <form className='update-form' onSubmit={handleUpdate}>
         <div>
-          <label htmlFor="name">Nombre:</label>
+         
           <input
             type="text"
             id="name"
             value={name}
             onChange={(event) => setName(event.target.value)}
+            placeholder='Cambiar tu nombre'
             required
           />
         </div>
         <div>
-          <label htmlFor="email">Email:</label>
+          
           <input
             type="email"
             id="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
+            placeholder='Cambiar tu correo'
             required
           />
         </div>
         <div>
-          <label htmlFor="password">Contraseña:</label>
+         
           <input
             type="password"
             id="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
+            placeholder='Cambiar tu contraseña'
           />
         </div>
         <div>
           <input type="submit" value="Actualizar" />
         </div>
       </form>
-      <button onClick={handleDelete}>Eliminar cuenta</button>
+      <button className='delete-button' onClick={handleDelete}>Eliminar cuenta</button>
       {responseMessage && <p>{responseMessage}</p>}
     </div>
   );

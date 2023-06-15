@@ -17,7 +17,7 @@ const UserStore = () => {
   return (
     <div>
       <main>
-        <div className="sidebar">
+        <div className="sideBar">
           <SideBar />
         </div>
         <div className="content">

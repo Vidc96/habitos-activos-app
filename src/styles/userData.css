@@ -1,0 +1,121 @@
+.form-content {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 0.5rem 2rem;
+    padding: 12px 12px;
+}
+
+.form-content h2,
+.form-content p {
+    width: 400px;
+    color: var(--secondary-color);
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 18px #000;
+}
+
+.form-content p {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.update-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 12px 12px;
+    background-color: #ffffffe6;
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg');
+    border-radius: 5px;
+    width: 400px;
+    height: 500px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.update-form>div {
+    margin-bottom: 2rem;
+}
+
+.update-form input[type="text"],
+.update-form input[type="email"],
+.update-form input[type="password"] {
+    background-color: #2a2b3881;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    width: 200px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.update-form input[type="submit"] {
+    margin-top: 2rem;
+    padding: 0.5rem 2rem;
+    border: none;
+    cursor: pointer;
+    color: #ffeba7;
+    text-transform: uppercase;
+    background-color: var(--primary-color);
+    transition: background-color 0.3s ease-in-out;
+    box-shadow: 0 8px 24px 0 var(--primary-color);
+    border-radius: 4px;
+    height: 44px;
+    width: 200px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.update-form input[type="submit"]:hover {
+    color: var(--primary-color);
+    background-color: #ffeba7;
+    box-shadow: 0 8px 24px 0 #000000;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.delete-button{
+    margin-top: 2rem;
+    padding: 1rem 0;
+    border: none;
+    cursor: pointer;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    background-color: #181818;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 4px;
+    width: 200px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.delete-button:hover {
+    color: #ffeba7;
+    background-color: #bc0c0c;
+    box-shadow: 0 8px 24px 0 #bc0c0c;
+    transition: background-color 0.3s ease-in-out;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .update-form {
+        width: 300px;
+    }
+
+    .update-form input[type="text"] {
+        width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .update-form {
+        width: 300px;
+
+    }
+
+    .update-form input[type="text"] {
+        width: 200px;
+    }
+}

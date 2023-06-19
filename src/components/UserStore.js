@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import SideBar from './SideBar';
 import UserData from './UserData'
 
+
 const UserStore = () => {
   const navigate = useNavigate();
 
@@ -10,7 +11,7 @@ const UserStore = () => {
     const userId = sessionStorage.getItem('userId');
 
     if (!userId) {
-      navigate('/main');
+      navigate('/');
     }
   }, [navigate]);
 

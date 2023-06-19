@@ -1,12 +1,15 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
-const currentDate = new Date();
+
 const WelcomeMessage = () => {
-  
+  const [t, i18n] = useTranslation("global");
+  const currentDate = new Date();
   return (
     <div>
-      <h2>Te damos la bienvenida!</h2>
-      <p>Llena tu vida de buenos hábitos, recuerda marcar como "listo" tu hábito de hoy: {currentDate.toLocaleDateString()} </p>
+      <h1>{t("welcomeMessage.title")}</h1>
+      <p>{t("welcomeMessage.info1")}: {currentDate.toLocaleDateString()} </p>
+      <p>{t("welcomeMessage.info2")} </p>
     </div>
   );
 };

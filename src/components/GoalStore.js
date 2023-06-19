@@ -10,7 +10,7 @@ const GoalStore = () => {
     const userId = sessionStorage.getItem('userId');
 
     if (!userId) {
-      navigate('/main');
+      navigate('/');
     }
   }, [navigate]);
 

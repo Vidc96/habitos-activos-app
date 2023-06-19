@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const AddBook = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [bookData, setBookData] = useState(null);
     const [responseMessage, setResponseMessage] = useState('');
+    const [t, i18n] = useTranslation("global");
 
     const handleSearch = async (event) => {
         event.preventDefault();
@@ -24,12 +26,12 @@ const AddBook = () => {
                 setBookData(bookData);
                 setResponseMessage('');
             } else {
-                setResponseMessage('No se encontraron resultados');
+                setResponseMessage(`${t("addBook.notFound")}`);
                 setBookData(null);
             }
         } catch (error) {
             console.error('Error en la solicitud:', error);
-            setResponseMessage('Error en la solicitud');
+            setResponseMessage(`${t("addBook.serverError")}`);
         }
     };
 
@@ -46,14 +48,14 @@ const AddBook = () => {
             });
 
             if (response.ok) {
-                setResponseMessage('¡Libro añadido con éxito!');
+                setResponseMessage(`${t("addBook.bookAdded")}`);
                 setBookData(null);
             } else {
-                setResponseMessage('Error al añadir el libro');
+                setResponseMessage(`${t("addBook.bookError")}`);
             }
         } catch (error) {
             console.error('Error en la solicitud:', error);
-            setResponseMessage('Error en la solicitud');
+            setResponseMessage(`${t("addBook.serverError")}`);
         }
     };
 
@@ -63,46 +65,46 @@ const AddBook = () => {
 
     return (
         <div>
-            <h2>Buscar un libro</h2>
-            <form onSubmit={handleSearch}>
+            <form className='add-form' onSubmit={handleSearch}>
+                <h2>{t("addBook.addTitle")}</h2>
                 <div>
-                    <label htmlFor="searchQuery">Buscar libro:</label>
                     <input
                         type="text"
                         id="searchQuery"
                         value={searchQuery}
                         onChange={handleChange}
+                        placeholder={t("addBook.findBook")}
                         required
                     />
-                    <button type="submit">Buscar</button>
+                    <button type="submit">{t("addBook.submit")}</button>
                 </div>
             </form>
 
             {bookData && (
-                <form onSubmit={handleAddBook}>
-                    <div>
-                        <label htmlFor="bookTitle">Título:</label>
-                        <input type="text" id="bookTitle" value={bookData.bookTitle} readOnly />
-                    </div>
-                    <div>
-                        <label htmlFor="authors">Autores:</label>
-                        <input type="text" id="authors" value={bookData.authors} readOnly />
-                    </div>
-                    <div>
-                        <label htmlFor="bookDescription">Descripción:</label>
-                        <textarea id="bookDescription" value={bookData.bookDescription} readOnly />
-                    </div>
-                    <div>
-                        <label htmlFor="link">Enlace:</label>
-                        <input type="text" id="link" value={bookData.link} readOnly />
-                    </div>
-                    <div>
-                        <label htmlFor="imageUrl">URL de imagen:</label>
-                        <input type="text" id="imageUrl" value={bookData.imageUrl} readOnly />
-                    </div>
-                    <div>
-                        <input type="submit" value="Añadir libro" />
-                    </div>
+                <form className='book-form' onSubmit={handleAddBook}>
+
+                    <label htmlFor="bookTitle">{t("addBook.titleBook")}:</label>
+                    <input type="text" id="bookTitle" value={bookData.bookTitle} readOnly />
+
+
+                    <label htmlFor="authors">{t("addBook.authorBook")}:</label>
+                    <input type="text" id="authors" value={bookData.authors} readOnly />
+
+
+                    <label htmlFor="bookDescription">{t("addBook.desciptionBook")}:</label>
+                    <textarea id="bookDescription" value={bookData.bookDescription} readOnly />
+
+
+                    <label htmlFor="link">{t("addBook.linkBook")}:</label>
+                    <input type="text" id="link" value={bookData.link} readOnly />
+
+
+                    <label htmlFor="imageUrl">{t("addBook.linkImg")}</label>
+                    <input type="text" id="imageUrl" value={bookData.imageUrl} readOnly />
+
+
+                    <input type="submit" value={t("addBook.submitForm")} />
+
                 </form>
             )}
 

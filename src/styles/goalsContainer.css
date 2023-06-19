@@ -1,6 +1,14 @@
+.scroll-habits{
+    overflow-y: scroll;
+    padding: 1rem;
+    background-color: #908f8f86;
+    height: 700px;
+    border-radius: 5px;
+    text-shadow: 1px 1px 18px #000;
+}
 .goals-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
@@ -64,7 +72,10 @@
     transition: background-color 0.3s ease-in-out;
 }
 
-@media (min-width: 1025px) and (max-width: 1599px) {
+@media (min-width: 1025px) and (max-width: 1820px) {
+    .scroll-habits{
+        height: 400px;
+    }
     .goals-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -81,6 +92,9 @@
 }
 
 @media (max-width: 768px) {
+    .scroll-habits{
+        height: 500px;
+    }
     .goals-grid {
         display: flex;
         justify-content: center;

@@ -10,7 +10,7 @@
     box-shadow: 0 4px 16px 0 #ffeba7;
     border-radius: 4px;
     height: 44px;
-    width: 100px;
+    width: 120px;
     font-size: 13px;
     font-weight: 600;
 }
@@ -24,6 +24,7 @@
 
 @media (min-width: 769px) and (max-width: 1024px) {
     .navButton {
+        font-size: 11px;
         width: 100px;
     }
 
@@ -32,6 +33,7 @@
 
 @media (max-width: 768px) {
     .navButton {
+        font-size: 10px;
         width: 100px;
     }
 }

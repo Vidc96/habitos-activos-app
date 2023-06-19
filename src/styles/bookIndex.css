@@ -1,6 +1,6 @@
 .books-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 20px;
 }
 
@@ -46,15 +46,23 @@
     border-radius: 3px;
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 1025px) and (max-width: 1720px) {
     .books-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 5px;
     }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 769px) and (max-width: 1144px) {
+    .books-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+    }
+}
+
+@media (max-width: 912px) {
     .books-grid {
         display: flex;
         justify-content: center;

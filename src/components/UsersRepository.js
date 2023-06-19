@@ -17,7 +17,7 @@ const UsersRepository = () => {
   return (
     <div>
       <main>
-        <div className="sidebar">
+        <div className="sideBar">
           <AdminTools />
         </div>
         <div className="content">

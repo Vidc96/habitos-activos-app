@@ -1,0 +1,91 @@
+.library {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f7;
+    padding: 20px;
+    color: #000;
+    border-radius: 12px;
+    overflow-y: scroll;
+    height: 800px;
+}
+
+.library h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.library table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff20;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.library th,
+.library td {
+    padding: 12px;
+    text-align: left;
+}
+
+.library thead {
+    background-color: #ffffff20;
+}
+
+.library tbody tr:nth-child(odd) {
+    background-color: #0000003c;
+}
+
+.library a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.library a:hover {
+    text-decoration: underline;
+}
+
+.library img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.library p {
+    margin-top: 10px;
+}
+
+.library .total-books {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .description{
+        display: none;
+    }
+    .library {
+        height: 500px;
+    }
+
+    .library h2 {
+        font-size: 20px;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+    .description{
+        display: none;
+    }
+    .library {
+        height: auto;
+        padding: 5px;
+    }
+
+    .library {
+        font-size: 13px;
+    }
+
+
+}

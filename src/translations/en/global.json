@@ -1,0 +1,139 @@
+{
+    "navLinks": {
+        "bookstore": "bookstore"
+    },
+    "footer": {
+        "copyRights": "All rights reserved."
+    },
+    "main": {
+        "title": "Your habits are modern solutions to ancestral desires."
+    },
+    "loginForm": {
+        "loginError": "Error while logging in.",
+        "serverError": "Connection error",
+        "emailForm": "Email",
+        "passwordForm": "Password",
+        "submitForm": "Log in"
+    },
+    "registerForm": {
+        "register": "User created.",
+        "registerError": "Error, please check some of the fields.",
+        "serverError": "Connection error",
+        "nameForm": "Name",
+        "emailForm": "Email",
+        "passwordForm": "Password",
+        "submitForm": "Register"
+    },
+    "library": {
+        "loadingBooks": "Loading books...",
+        "anyBooks": "No books available.",
+        "welcomeLibrary": "Welcome administrator to the Bookstore",
+        "countBooks": "Total available books:",
+        "titleBook": "Title",
+        "authorBook": "Authors",
+        "desciptionBook": "Description",
+        "linkBook": "Link",
+        "link": "View more",
+        "imageBook": "Image"
+    },
+    "booksIndex": {
+        "loadingBooks": "Loading books...",
+        "anyBooks": "No books available.",
+        "authorBook": "Authors",
+        "link": "View more"
+    },
+    "admindBar": {
+        "books": "Books",
+        "booksSettings": "Settings",
+        "users": "Users",
+        "logout": "Logout"
+    },
+    "addBook": {
+        "notFound": "No results found",
+        "serverError": "Connection error",
+        "bookAdded": "Book added successfully!",
+        "bookError": "Error adding the book",
+        "addTitle": "Let's add a new book!",
+        "findBook": "Search for a book by its name",
+        "submit": "Search",
+        "titleBook": "Title:",
+        "authorBook": "Authors:",
+        "desciptionBook": "Description:",
+        "linkBook": "Link:",
+        "linkImg": "Image URL:",
+        "submitForm": "Add book"
+    },
+    "deleteBook": {
+        "alertBook": "Are you sure you want to delete the book?",
+        "bookDeleted": "Book deleted successfully!",
+        "errorDelete": "Error deleting the book",
+        "serverError": "Connection error",
+        "deleteTitle": "Delete a book",
+        "nameBook": "Book name",
+        "inputDelete": "Delete"
+    },
+    "listBooks": {
+        "loadingBooks": "Loading books...",
+        "notFound": "No books found.",
+        "titles": "Names of available books"
+    },
+    "userList": {
+        "titles": "User List",
+        "usersCount": "Total Registered Users:",
+        "name": "Names",
+        "email": "Emails",
+        "dateCreate": "Creation Date",
+        "dateUpdate": "Update Date",
+        "notFound": "No users found."
+    },
+    "back": {
+        "backButton": "Back"
+    },
+    "sideBar": {
+        "myHabits": "My Habits",
+        "newHabit": "New Habit",
+        "settings": "Settings",
+        "logout": "Logout"
+    },
+    "welcome": {
+        "title": "Your Goals"
+    },
+    "welcomeMessage": {
+        "title": "Welcome!",
+        "messagePublicity":"New video!",
+        "info1": "Fill your life with good habits, remember to mark your habit as completed today",
+        "info2": "Not marking as completed daily resets your streak of days.",
+        "info3":"There's a gap between who you are and who you want to be. Striving for change can be frustrating when you revert to old habits. Change is hard, but understanding why makes it easier"
+    },
+    "goalsContainer": {
+        "alertHabit": "Are you sure you want to delete this habit?",
+        "info": "You don't have any active habits yet.",
+        "goalDays": "Streak of days",
+        "currentDay": "Your last time",
+        "checkHabit": "Done",
+        "deleteHabit": "Delete"
+    },
+    "userData": {
+        "alertUser": "Are you sure you want to delete your account? 😢",
+        "title": "Account Center",
+        "info": "Manage your experience",
+        "nameEdit": "Change your name",
+        "emailEdit": "Change your email",
+        "passEdit": "Change your password",
+        "pass": "Enter your current password",
+        "inputSubmit": "Update",
+        "inputDelete": "Delete account",
+        "info1": "User updated successfully",
+        "info2": "Error updating user"
+    },
+    "goalForm": {
+        "habitCreated": "New habit created, good luck! ✅",
+        "errorCreated": "Error creating the goal",
+        "titleCreate": "Ready for a new habit? Let's start now!",
+        "info": "Fill in the fields below:",
+        "titleHabit": "Title for your habit",
+        "infoHabit": "My habit is about...",
+        "titlePublicity":"Products for you!",
+        "inputSubmit": "Create goal"
+    }
+}

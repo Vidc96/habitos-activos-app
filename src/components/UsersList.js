@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
+  const [t, i18n] = useTranslation("global");
 
   useEffect(() => {
     const fetchUserList = async () => {
@@ -25,17 +27,17 @@ const UserList = () => {
   }, []);
   
   return (
-    <div>
-      <h3>Lista de Usuarios</h3>
-      <p>Cantidad de Usuarios Registrados: {users.length}</p>
+    <div className='table-user'>
+      <h1>{t("userList.titles")}</h1>
+      <p>{t("userList.usersCount")} {users.length}</p>
       {users ? (
         <table>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Created At</th>
-              <th>Updated At</th>
+              <th>{t("userList.name")}</th>
+              <th>{t("userList.email")}</th>
+              <th className='useerData'>{t("userList.dateCreate")}</th>
+              <th className='useerData'>{t("userList.dateUpdate")}</th>
             </tr>
           </thead>
           <tbody>
@@ -43,14 +45,14 @@ const UserList = () => {
               <tr key={user.id}>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
-                <td>{user.created_at}</td>
-                <td>{user.updated_at}</td>
+                <td className='useerData'>{user.created_at}</td>
+                <td className='useerData'>{user.updated_at}</td>
               </tr>
             ))}
           </tbody>
         </table>
       ) : (
-        <p>No se encontraron usuarios.</p>
+        <p>{t("userList.notFound")}</p>
       )}
     </div>
   );

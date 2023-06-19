@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 
 const Library = () => {
   const [books, setBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [t, i18n] = useTranslation("global");
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -26,26 +29,27 @@ const Library = () => {
   }, []);
 
   if (isLoading) {
-    return <p>Cargando libros...</p>;
+    return <p>{t("library.loadingBooks")}</p>;
   }
 
   if (books.length === 0) {
-    return <p>No existen libros en existencia.</p>;
+    return <p>{t("library.anyBooks")}</p>;
   }
 
   const totalBooks = books.length;
 
   return (
-    <div>
-      <h2>Bienvenido a la Librería</h2>
-      <table>
+    <div className="library">
+      <h2 className="library-title">{t("library.welcomeLibrary")}</h2>
+      <p className="total-books">{t("library.countBooks")} {totalBooks}</p>
+      <table className="library-table">
         <thead>
           <tr>
-            <th>Título</th>
-            <th>Autores</th>
-            <th>Descripción</th>
-            <th>Enlace</th>
-            <th>Imagen</th>
+            <th>{t("library.titleBook")}</th>
+            <th>{t("library.authorBook")}</th>
+            <th className='description'>{t("library.desciptionBook")}</th>
+            <th>{t("library.linkBook")}</th>
+            <th>{t("library.imageBook")}</th>
           </tr>
         </thead>
         <tbody>
@@ -53,10 +57,10 @@ const Library = () => {
             <tr key={book.id}>
               <td>{book.bookTitle}</td>
               <td>{book.authors}</td>
-              <td>{book.bookDescription}</td>
+              <td className='description'>{book.bookDescription}</td>
               <td>
                 <a href={book.link} target="_blank" rel="noopener noreferrer">
-                  Ver más
+                  {t("library.link")}
                 </a>
               </td>
               <td>
@@ -66,8 +70,8 @@ const Library = () => {
           ))}
         </tbody>
       </table>
-      <p>Total de libros disponibles: {totalBooks}</p>
     </div>
+
   );
 };
 

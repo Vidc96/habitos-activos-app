@@ -1,8 +1,10 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import '../styles/navButtons.css';
 
 const BackMain = () => {
+  const [t, i18n] = useTranslation("global");
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -11,7 +13,7 @@ const BackMain = () => {
   };
 
   return (
-      <button className='navButton' onClick={handleMain}>Back</button>
+      <button className='navButton' onClick={handleMain}>{t("back.backButton")}</button>
   );
 };
 

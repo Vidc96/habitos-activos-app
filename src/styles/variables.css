@@ -3,3 +3,12 @@
     --secondary-color: #ffffff;
     --accent-color: #0000002e;
 }
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #1f2b36f0;
+        --secondary-color: #c6c6c6;
+        --accent-color: #ffffff4d;
+    }
+}
+

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/goalForm.css';
+import { useTranslation } from 'react-i18next';
 
 const GoalForm = () => {
   const [formData, setFormData] = useState({
@@ -7,6 +8,7 @@ const GoalForm = () => {
     goal_description: '',
   });
   const [responseMessage, setResponseMessage] = useState('');
+  const [t, i18n] = useTranslation('global');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -32,13 +34,15 @@ const GoalForm = () => {
         }
       }
 
-      if (response.ok) {
-        setResponseMessage(data.message);
+      if (response.status === 201) {
         setFormData({
           goal_name: '',
           goal_description: '',
         });
-      } 
+        setResponseMessage(`${t('goalForm.habitCreated')}`);
+      } else {
+        setResponseMessage(data.message || `${t('goalForm.errorCreated')}`);
+      }
     } catch (error) {
       console.error('Error en la solicitud:', error);
     }
@@ -49,37 +53,45 @@ const GoalForm = () => {
   };
 
   return (
-    <div className='form-content'>
-      <h2>¿Listo para un nuevo hábito?, empecemos ya!</h2>
-      <p>Rellena los campos a continuación:</p>
-      <form className='goal-form' onSubmit={handleSubmit}>
-        <div>
-          <input
-            type="text"
-            id="goal_name"
-            name="goal_name"
-            value={formData.title}
-            onChange={handleChange}
-            placeholder="Título para tu hábito"
-            required
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            id="goal_description"
-            name="goal_description"
-            value={formData.description}
-            onChange={handleChange}
-            placeholder="Mi hábito trata sobre..."
-            required
-          />
-        </div>
-        <div>
-          <input type="submit" value="Crear objetivo" />
-        </div>
-      </form>
-      {responseMessage && <p>{responseMessage}</p>}
+    <div className="content">
+      <div className="form-content">
+        <h2>{t('goalForm.titleCreate')}</h2>
+        <p>{t('goalForm.info')}</p>
+        <form className="goal-form" onSubmit={handleSubmit}>
+          <div>
+            <input
+              type="text"
+              id="goal_name"
+              name="goal_name"
+              value={formData.goal_name}
+              onChange={handleChange}
+              placeholder={t('goalForm.titleHabit')}
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              id="goal_description"
+              name="goal_description"
+              value={formData.goal_description}
+              onChange={handleChange}
+              placeholder={t('goalForm.infoHabit')}
+              required
+            />
+          </div>
+          <div>
+            <input type="submit" value={t('goalForm.inputSubmit')} />
+          </div>
+        </form>
+        {responseMessage && <p>{responseMessage}</p>}
+      </div>
+      <div className="image-container">
+        <h3>{t('goalForm.titlePublicity')}</h3>
+        <a href="https://shop-eu.kurzgesagt.org/products/habit-journal" target="_blank" rel="noopener noreferrer">
+          <img src="https://cdn.shopify.com/s/files/1/0252/6822/4088/products/01_HabitJournal_Front_0d0aa7bd-ecd0-400a-87e1-51b78415aa8a.jpg?crop=center&v=1674232316&width=540" alt="Image" />
+        </a>
+      </div>
     </div>
   );
 };

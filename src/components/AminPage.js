@@ -17,10 +17,10 @@ const AdminPage = () => {
   return (
     <div>
       <main>
-        <div className="sidebar">
+        <div className="sideBar">
           <AdminTools />
         </div>
-        <div className="content">
+        <div className="content-user">
           <Library />
         </div>
       </main>

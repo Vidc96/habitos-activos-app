@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/goalsContainer.css';
+import { useTranslation } from 'react-i18next';
 
 const GoalsContainer = () => {
   const [goals, setGoals] = useState([]);
   const [selectedGoalId, setSelectedGoalId] = useState('');
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [t, i18n] = useTranslation("global");
 
   useEffect(() => {
     const fetchGoals = async () => {
@@ -28,7 +30,6 @@ const GoalsContainer = () => {
       });
 
       if (response.ok) {
-
         setIsRefreshing(!isRefreshing);
       } else {
         console.error('Error al marcar el objetivo como completado');
@@ -39,18 +40,22 @@ const GoalsContainer = () => {
   };
 
   const handleGoalDelete = async (goalId) => {
-    try {
-      const response = await fetch(`http://localhost:8000/api/goals/${goalId}`, {
-        method: 'DELETE',
-      });
+    const confirmation = window.confirm(`${t("goalsContainer.alertHabit")}`);
 
-      if (response.ok) {
-        setIsRefreshing(!isRefreshing);
-      } else {
-        console.error('Error al eliminar el objetivo');
+    if (confirmation) {
+      try {
+        const response = await fetch(`http://localhost:8000/api/goals/${goalId}`, {
+          method: 'DELETE',
+        });
+
+        if (response.ok) {
+          setIsRefreshing(!isRefreshing);
+        } else {
+          console.error('Error al eliminar el objetivo');
+        }
+      } catch (error) {
+        console.error('Error en la solicitud:', error);
       }
-    } catch (error) {
-      console.error('Error en la solicitud:', error);
     }
   };
 
@@ -65,28 +70,31 @@ const GoalsContainer = () => {
   };
 
   return (
-    <div className='goals-grid'>
-      {goals.length === 0 ? (
-        <p>No tienes ningún hábito activo aún.</p>
-      ) : (
-        goals.map((goal) => (
-          <div className='goal-container' key={goal.id}>
-            <h4>{goal.goal_name}</h4>
-            <p>{goal.goal_description}</p>
-            <p>Días completados: {goal.days_completed}</p>
-            <p>Fecha actual: {goal.current_date}</p>
-            <div className='goals-buttons'>
-              <button className='checkButton' type="button" onClick={() => handleButtonClick(goal.id)}>
-                Listo
-              </button>
-              <button className='deleteButton' type="button" onClick={() => handleDeleteClick(goal.id)}>
-                Eliminar
-              </button>
+    <div className='scroll-habits'>
+      <div className='goals-grid'>
+        {goals.length === 0 ? (
+          <p>{t("goalsContainer.info")}</p>
+        ) : (
+          goals.map((goal) => (
+            <div className='goal-container' key={goal.id}>
+              <h4>{goal.goal_name}</h4>
+              <p>{goal.goal_description}</p>
+              <p>{t("goalsContainer.goalDays")}: {goal.days_completed}</p>
+              <p>{t("goalsContainer.currentDay")}: {goal.current_date}</p>
+              <div className='goals-buttons'>
+                <button className='checkButton' type="button" onClick={() => handleButtonClick(goal.id)}>
+                  {t("goalsContainer.checkHabit")}
+                </button>
+                <button className='deleteButton' type="button" onClick={() => handleDeleteClick(goal.id)}>
+                  {t("goalsContainer.deleteHabit")}
+                </button>
+              </div>
             </div>
-          </div>
-        ))
-      )}
+          ))
+        )}
+      </div>
     </div>
+    
   );
 };
 

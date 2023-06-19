@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {useTranslation} from 'react-i18next';
 import '../styles/loginForm.css';
 
 const LoginForm = () => {
+  const [t, i18n] = useTranslation("global");
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -45,11 +47,11 @@ const LoginForm = () => {
           console.error('Error al obtener el tipo de usuario:', userTypeData.message);
         }
       } else {
-        setResponseMessage(data.message || 'Error al iniciar sesión');
+        setResponseMessage(data.message || `${t("loginForm.loginError")}`);
       }
     } catch (error) {
       console.error('Error en la solicitud:', error);
-      setResponseMessage('Error en la solicitud');
+      setResponseMessage(`${t("loginForm.serverError")}`);
     }
   };
 
@@ -66,8 +68,8 @@ const LoginForm = () => {
           name="email"
           value={formData.email}
           onChange={handleChange}
+          placeholder={t("loginForm.emailForm")}
           required
-          placeholder='Correo'
         />
       </div>
       <div>
@@ -77,12 +79,12 @@ const LoginForm = () => {
           name="password"
           value={formData.password}
           onChange={handleChange}
+          placeholder={t("loginForm.passwordForm")}
           required
-          placeholder='Contraseña'
         />
       </div>
       <div>
-        <input type="submit" value="Iniciar sesión" />
+        <input type="submit" value={t("loginForm.submitForm")} />
       </div>
       {responseMessage && <p>{responseMessage}</p>}
     </form>

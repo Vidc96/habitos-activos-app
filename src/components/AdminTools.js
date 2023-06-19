@@ -1,13 +1,15 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const AdminTools = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [t, i18n] = useTranslation("global");
 
   const handleLogout = () => {
     sessionStorage.removeItem('userId');
-    navigate('/main');
+    navigate('/');
   };
 
   const handleBooks = () => {
@@ -26,10 +28,10 @@ const AdminTools = () => {
 
   return (
     <div>
-      <button onClick={handleBooks}>Library</button>
-      <button onClick={handleBooksRepository}>Libray settings</button>
-      <button onClick={handleUsersRepository}>Users list</button>
-      <button onClick={handleLogout}>Logout</button>
+      <button className='navButton' onClick={handleBooks}>{t("admindBar.books")}</button>
+      <button className='navButton' onClick={handleBooksRepository}>{t("admindBar.booksSettings")}</button>
+      <button className='navButton' onClick={handleUsersRepository}>{t("admindBar.users")}</button>
+      <button className='navButton' onClick={handleLogout}>{t("admindBar.logout")}</button>
     </div>
   );
 };

@@ -1,0 +1,139 @@
+{
+    "navLinks": {
+        "bookstore": "libreria"
+    },
+    "footer": {
+        "copyRights": "Todos los derechos reservados."
+    },
+    "main": {
+        "title": "Tus hábitos son soluciones modernas a deseos ancestrales."
+    },
+    "loginForm": {
+        "loginError": "Error al iniciar sesión.",
+        "serverError": "Error de conexión",
+        "emailForm": "Correo",
+        "passwordForm": "Contraseña",
+        "submitForm": "Iniciar sesión"
+    },
+    "registerForm": {
+        "register": "Usuario creado.",
+        "registerError": "Error, revisa alguno de los campos.",
+        "serverError": "Error de conexión",
+        "nameForm": "Nombre",
+        "emailForm": "Correo",
+        "passwordForm": "Contraseña",
+        "submitForm": "Registrase"
+    },
+    "library": {
+        "loadingBooks": "Cargando libros...",
+        "anyBooks": "No existen libros en existencia.",
+        "welcomeLibrary": "Bienvenido administrador a la Librería",
+        "countBooks": "Total de libros disponibles:",
+        "titleBook": "Título",
+        "authorBook": "Autores",
+        "desciptionBook": "Descripción",
+        "linkBook": "Enlace",
+        "link": "Ver más",
+        "imageBook": "Imagen"
+    },
+    "booksIndex": {
+        "loadingBooks": "Cargando libros...",
+        "anyBooks": "No existen libros en existencia.",
+        "authorBook": "Autores",
+        "link": "Ver más"
+    },
+    "admindBar": {
+        "books": "Libros",
+        "booksSettings": "Configuración",
+        "users": "Usuarios",
+        "logout": "Cerrar sesión"
+    },
+    "addBook": {
+        "notFound": "No se encontraron resultados",
+        "serverError": "Error de conexión",
+        "bookAdded": "¡Libro añadido con éxito!",
+        "bookError": "Error al añadir el libro",
+        "addTitle": "Agreguemos un nuevo libro!",
+        "findBook": "Busca un libro por su nombre",
+        "submit": "Buscar",
+        "titleBook": "Título:",
+        "authorBook": "Autores:",
+        "desciptionBook": "Descripción:",
+        "linkBook": "Enlace:",
+        "linkImg": "URL de imagen:",
+        "submitForm": "Añadir libro"
+    },
+    "deleteBook": {
+        "alertBook": "¿Estás seguro de eliminar el libro?",
+        "bookDeleted": "¡Libro eliminado con éxito!",
+        "errorDelete": "Error al eliminar el libro",
+        "serverError": "Error de conexión",
+        "deleteTitle": "Eliminar un libro",
+        "nameBook": "Nombre del libro",
+        "inputDelete": "Eliminar"
+    },
+    "listBooks": {
+        "loadingBooks": "Cargando libros...",
+        "notFound": "No se encontraron libros.",
+        "titles": "Nombres de libros en existencia"
+    },
+    "userList": {
+        "titles": "Lista de Usuarios",
+        "usersCount": "Cantidad de Usuarios Registrados:",
+        "name": "Nombres",
+        "email": "Correos",
+        "dateCreate": "Fecha de creación",
+        "dateUpdate": "Fecha de actulaización",
+        "notFound": "No se encontraron usuarios."
+    },
+    "back": {
+        "backButton":"Volver"
+    },
+    "sideBar": {
+        "myHabits":"Mis hábitos",
+        "newHabit":"Nuevo hábito",
+        "settings":"Configuración",
+        "logout": "Cerrar sesión"
+    },
+    "welcome": {
+        "title":"Tus objetivos"
+    },
+    "welcomeMessage": {
+        "title":"Te damos la bienvenida!",
+        "messagePublicity":"Nuevo video!",
+        "info1":"Llena tu vida de buenos hábitos, recuerda marcar como listo tu hábito de hoy",
+        "info2":"No marcar diariamente como listo restablece tu racha de días.",
+        "info3":"Existe una brecha entre la persona que eres y la que deseas ser. Intentas lograr metas y cambios, pero te frustras cuando vuelves a tus viejos hábitos. El cambio es difícil, pero entender por qué te ayuda no."
+    },
+    "goalsContainer" : {
+        "alertHabit": "¿Estás seguro de que deseas eliminar este hábito?",
+        "info":"No tienes ningún hábito activo aún.",
+        "goalDays":"Racha de días",
+        "currentDay":"Tu última vez",
+        "checkHabit":"Listo",
+        "deleteHabit":"Eliminar"
+    },
+    "userData": {
+        "alertUser":"¿Estás seguro de que deseas eliminar tu cuenta? 😢",
+        "title":"Centro de Cuenta",
+        "info":"Administra tu experiencia",
+        "nameEdit":"Cambiar tu nombre",
+        "emailEdit":"Cambiar tu correo",
+        "passEdit":"Cambiar tu contraseña",
+        "pass":"Ingresa tu contraseña actual",
+        "inputSubmit":"Actualizar",
+        "inputDelete":"Eliminar cuenta",
+        "info1":"Usuario actualizado correctamente",
+        "info2":"Error al actualizar el usuario"
+    },
+    "goalForm": {
+        "habitCreated":"¡Nuevo hábito creado, suerte! ✅",
+        "errorCreated":"Error al crear el objetivo",
+        "titleCreate":"¿Listo para un nuevo hábito?, ¡empecemos ya!",
+        "info":"Rellena los campos a continuación:",
+        "titleHabit":"Título para tu hábito",
+        "infoHabit":"Mi hábito trata sobre...",
+        "titlePublicity":"Productos de interes",
+        "inputSubmit":"Crear objetivo"
+    }
+}

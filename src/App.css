@@ -1,6 +1,10 @@
 @import url('./styles/reset.css');
 @import url('./styles/variables.css');
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+@import url('./styles/navButtons.css');
+@import url('./styles/tableLIbrary.css');
+@import url('./styles/booksRepository.css');
+@import url('./styles/userList.css');
 
 header {
     display: flex;
@@ -22,6 +26,7 @@ header {
     font-weight: bold;
     padding: 0.3rem 2rem;
     background-color: transparent;
+    text-transform: uppercase;
     border: none;
     color: var(--primary-color);
     transition: box-shadow 0.3s ease-in-out;
@@ -45,6 +50,16 @@ footer {
     background-color: var(--secondary-color);
     text-align: center;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+}
+
+
+.social-icons a{
+    margin: 10px;
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import {useTranslation} from 'react-i18next';
 import '../styles/registrationForm.css';
 
 const RegistrationForm = () => {
+  const [t, i18n] = useTranslation("global");
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -25,18 +27,18 @@ const RegistrationForm = () => {
       const data = await response.json();
 
       if (response.ok) {
-        setResponseMessage(data.message);
+        setResponseMessage(`${t("registerForm.register")}`);
         setFormData({
           name: '',
           email: '',
           password: '',
         });
       } else {
-        setResponseMessage(data.error);
+        setResponseMessage(`${t("registerForm.registerError")}`);
       }
     } catch (error) {
       console.error('Error en la solicitud:', error);
-      setResponseMessage('Error en la solicitud');
+      setResponseMessage(`${t("registerForm.serverError")}`);
     }
   };
 
@@ -53,8 +55,8 @@ const RegistrationForm = () => {
           name="name"
           value={formData.name}
           onChange={handleChange}
+          placeholder={t("registerForm.nameForm")}
           required
-          placeholder='Nombre'
         />
       </div>
       <div>
@@ -64,8 +66,8 @@ const RegistrationForm = () => {
           name="email"
           value={formData.email}
           onChange={handleChange}
+          placeholder={t("registerForm.emailForm")}
           required
-          placeholder='Correo'
         />
       </div>
       <div>
@@ -75,12 +77,12 @@ const RegistrationForm = () => {
           name="password"
           value={formData.password}
           onChange={handleChange}
+          placeholder={t("registerForm.passwordForm")}
           required
-          placeholder='Contraseña'
         />
       </div>
       <div>
-        <input type="submit" value="Registrarse" />
+        <input type="submit" value={t("registerForm.submitForm")} />
       </div>
       {responseMessage && <p>{responseMessage}</p>}
     </form>

@@ -1,46 +1,42 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import '../styles/userData.css';
+import { useTranslation } from 'react-i18next';
 
 const UserData = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [responseMessage, setResponseMessage] = useState('');
-
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const userId = sessionStorage.getItem('userId');
-        const response = await fetch(`http://localhost:8000/api/users/${userId}/user`);
-        const data = await response.json();
-        setName(data.name);
-        setEmail(data.email);
-      } catch (error) {
-        console.error('Error en la solicitud:', error);
-      }
-    };
-
-    fetchUserData();
-  }, []);
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [updateSuccess, setUpdateSuccess] = useState('');
+  const [t, i18n] = useTranslation("global");
 
   const handleUpdate = async (event) => {
     event.preventDefault();
 
     try {
       const userId = sessionStorage.getItem('userId');
+      const requestBody = {
+        name: name !== '' ? name : undefined,
+        email: email !== '' ? email : undefined,
+        password: password !== '' && currentPassword !== '' ? password : undefined,
+        current_password: currentPassword !== '' ? currentPassword : undefined,
+      };
       const response = await fetch(`http://localhost:8000/api/users/${userId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify(requestBody),
       });
 
       if (response.ok) {
-        setResponseMessage('Usuario actualizado correctamente');
-        window.location.reload(); 
+        setUpdateSuccess(true);
+        setName('');
+        setEmail('');
+        setPassword('');
+        setCurrentPassword('');
       } else {
-        setResponseMessage('Error al actualizar el usuario');
+        setUpdateSuccess(false);
       }
     } catch (error) {
       console.error('Error en la solicitud:', error);
@@ -48,7 +44,7 @@ const UserData = () => {
   };
 
   const handleDelete = async () => {
-    const confirmation = window.confirm('¿Estás seguro de que deseas eliminar tu cuenta?');
+    const confirmation = window.confirm(`${t("userData.alertUser")}`);
 
     if (confirmation) {
       try {
@@ -58,62 +54,73 @@ const UserData = () => {
         });
 
         if (response.ok) {
-          setResponseMessage('Cuenta eliminada correctamente');
-          sessionStorage.removeItem('userId'); 
-          window.location.reload(); 
+          setUpdateSuccess(true);
+          sessionStorage.removeItem('userId');
         } else {
-          setResponseMessage('Error al eliminar la cuenta');
+          setUpdateSuccess(false);
         }
       } catch (error) {
         console.error('Error en la solicitud:', error);
-        
       }
     }
   };
 
   return (
-    <div className='form-content'>
-      <h2>Centro de Cuenta</h2>
-      <p>Administra tu experiencia</p>
-      <form className='update-form' onSubmit={handleUpdate}>
-        <div>
-         
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            placeholder='Cambiar tu nombre'
-            required
-          />
-        </div>
-        <div>
-          
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            placeholder='Cambiar tu correo'
-            required
-          />
-        </div>
-        <div>
-         
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            placeholder='Cambiar tu contraseña'
-          />
-        </div>
-        <div>
-          <input type="submit" value="Actualizar" />
-        </div>
-      </form>
-      <button className='delete-button' onClick={handleDelete}>Eliminar cuenta</button>
-      {responseMessage && <p>{responseMessage}</p>}
+    <div className='content-settings'>
+      
+      <div className='form-content'>
+        <h2>{t("userData.title")}</h2>
+        <p>{t("userData.info")}</p>
+        <form className='update-form' onSubmit={handleUpdate}>
+          <div>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+              placeholder={t("userData.nameEdit")}
+            />
+          </div>
+          <div>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              placeholder={t("userData.emailEdit")}
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              placeholder={t("userData.passEdit")}
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              id="current_password"
+              value={currentPassword}
+              onChange={(event) => setCurrentPassword(event.target.value)}
+              placeholder={t("userData.pass")}
+            />
+          </div>
+          <div>
+            <input type="submit" value={t("userData.inputSubmit")} />
+          </div>
+        </form>
+        <button className='delete-button' onClick={handleDelete}>{t("userData.inputDelete")}</button>
+        {updateSuccess && <p>{t("userData.info1")}</p>}
+        {updateSuccess === false && <p>{t("userData.info2")}</p>}
+      </div>
+
+      <div className="image-setting">
+        <img src="https://cdn2.iconfinder.com/data/icons/seo-3-black-fill/64/SEO_-3_-_Filled_Outline_-_10-35-512.png" alt="Image" />
+      </div>
+
     </div>
   );
 };

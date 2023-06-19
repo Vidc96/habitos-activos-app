@@ -1,0 +1,214 @@
+.content-bookSetting {
+    display: flex;
+}
+
+.content-listbooks {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 21px;
+}
+
+.add-form,
+.delete-form {
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: var(--secondary-color);
+    padding: 1rem;
+    background-color: #00000089;
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg');
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 1rem;
+    width: 400px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.book-form {
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: var(--secondary-color);
+    padding: 1rem;
+    background-color: #00000089;
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg');
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 1rem;
+    width: 400px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.add-form input[type="text"],
+.delete-form input[type="text"] {
+    background-color: #2a2b3881;
+    font-size: 18px;
+    width: 300px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    color: var(--secondary-color);
+}
+
+.book-form input[type="text"],
+.book-form textarea {
+    background-color: #2a2b3881;
+    font-size: 18px;
+    width: 300px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    color: var(--secondary-color);
+}
+
+.add-form button[type="submit"],
+.book-form input[type="submit"],
+.delete-form input[type="submit"] {
+    margin-top: 0.5rem;
+    padding: 0.5rem 2rem;
+    border: none;
+    cursor: pointer;
+    color: #ffeba7;
+    text-transform: uppercase;
+    background-color: var(--primary-color);
+    transition: background-color 0.3s ease-in-out;
+    box-shadow: 0 8px 24px 0 var(--primary-color);
+    border-radius: 4px;
+    height: 44px;
+    width: 200px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 3px;
+}
+
+.add-form button[type="submit"]:hover {
+    color: var(--secondary-color);
+    background-color: #287224;
+    box-shadow: 0 8px 24px 0 #287224;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.delete-form input[type="submit"]:hover {
+    color: var(--secondary-color);
+    background-color: #bc0c0c;
+    box-shadow: 0 8px 24px 0 #bc0c0c;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.table {
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: var(--secondary-color);
+    background-color: #00000089;
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg');
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 1rem;
+    width: 400px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    overflow-y: scroll;
+    height: 600px;
+}
+
+.table th {
+    font-weight: bold;
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #999;
+}
+
+.table td {
+    padding: 12px;
+    border-bottom: 1px solid #999;
+}
+
+.table tr:last-child td {
+    border-bottom: none;
+}
+
+.table tr:hover {
+    background-color: #181818;
+}
+
+@media (min-width: 769px) and (max-width: 1124px) {
+    
+    .content-listbooks .table {
+        width: 220px;
+    }
+    
+    .add-form,
+    .delete-form {
+        width: 220px;
+    }
+
+    .book-form {
+        width: 220px;
+    }
+
+    .book-form input[type="text"],
+    .book-form textarea {
+        font-size: 13px;
+        width: 150px;
+    }
+
+    .add-form button[type="submit"],
+    .book-form input[type="submit"],
+    .delete-form input[type="submit"] {
+        width: 150px;
+    }
+
+    .add-form input[type="text"],
+    .delete-form input[type="text"] {
+        width: 150px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .content-bookSetting {
+        flex-direction: column;
+        margin-left: 10px;
+    }
+
+    .content-listbooks {
+        margin-bottom: 10px;
+    }
+
+    .content-listbooks .table {
+        display: none;
+    }
+
+    .add-form,
+    .delete-form {
+        width: 220px;
+    }
+
+    .book-form {
+        width: 220px;
+    }
+
+    .book-form input[type="text"],
+    .book-form textarea {
+        font-size: 13px;
+        width: 150px;
+    }
+
+    .add-form button[type="submit"],
+    .book-form input[type="submit"],
+    .delete-form input[type="submit"] {
+        width: 150px;
+    }
+
+    .add-form input[type="text"],
+    .delete-form input[type="text"] {
+        width: 150px;
+    }
+
+}

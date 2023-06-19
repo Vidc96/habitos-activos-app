@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import '../styles/bookIndex.css';
 
 const BooksIndex = () => {
   const [books, setBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [t, i18n] = useTranslation("global");
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -27,25 +29,28 @@ const BooksIndex = () => {
   }, []);
 
   if (isLoading) {
-    return <p>Cargando libros...</p>;
+    return <p>{t("library.loadingBooks")}</p>;
   }
 
   if (books.length === 0) {
-    return <p>La librería está vacía.</p>;
+    return <p>{t("library.anyBooks")}</p>;
   }
 
   return (
-    <div className="books-grid">
-      {books.map((book) => (
-        <div className="book-container" key={book.id}>
-          <img src={book.imageUrl} alt={book.bookTitle} />
-          <h2>{book.bookTitle}</h2>
-          <p>Autores: {book.authors}</p>
-          <a href={book.link} target="_blank" rel="noopener noreferrer">
-            Ver más
-          </a>
-        </div>
-      ))}
+    <div className='content-library'>
+      <div className="books-grid">
+        {books.map((book) => (
+          <div className="book-container" key={book.id}>
+            <img src={book.imageUrl} alt={book.bookTitle} />
+            <h2>{book.authorBook}</h2>
+            <p>{t("library.authorBook")}: {book.authors}</p>
+            <a href={book.link} target="_blank" rel="noreferrer">
+              {t("library.link")}
+            </a>
+          </div>
+
+        ))}
+      </div>
     </div>
   );
 };

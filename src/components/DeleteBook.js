@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const DeleteBook = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [responseMessage, setResponseMessage] = useState('');
-
+  const [t, i18n] = useTranslation("global");
   const handleDeleteBook = async (event) => {
     event.preventDefault();
+
+    const confirmed = window.confirm(`${t("deleteBook.alertBook")}`);
+    if (!confirmed) {
+      return;
+    }
 
     try {
       const response = await fetch(`http://localhost:8000/api/books/${searchQuery}`, {
@@ -13,13 +19,13 @@ const DeleteBook = () => {
       });
 
       if (response.ok) {
-        setResponseMessage('¡Libro eliminado con éxito!');
+        setResponseMessage(`${t("deleteBook.bookDeleted")}`);
       } else {
-        setResponseMessage('Error al eliminar el libro');
+        setResponseMessage(`${t("deleteBook.errorDelete")}`);
       }
     } catch (error) {
       console.error('Error en la solicitud:', error);
-      setResponseMessage('Error en la solicitud');
+      setResponseMessage(`${t("deleteBook.serverError")}`);
     }
   };
 
@@ -29,19 +35,20 @@ const DeleteBook = () => {
 
   return (
     <div>
-      <h2>Eliminar un libro</h2>
-
-      <form onSubmit={handleDeleteBook}>
+      <form className="delete-form" onSubmit={handleDeleteBook}>
+        <h2>{t("deleteBook.deleteTitle")}</h2>
         <div>
-          <label htmlFor="searchQuery">Buscar libro:</label>
           <input
             type="text"
             id="searchQuery"
             value={searchQuery}
             onChange={handleChange}
+            placeholder={t("deleteBook.nameBook")}
             required
           />
-          <input type="submit" value="Eliminar libro" />
+        </div>
+        <div>
+          <input type="submit" value={t("deleteBook.inputDelete")} />
         </div>
       </form>
 
